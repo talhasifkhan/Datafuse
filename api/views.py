@@ -64,8 +64,10 @@ def scrapeSite(request):
     print('hi')
 
     for paragraph in soup.find_all('p'):
-        if len(paragraph.text) > 100:
+        if len(paragraph.text) > 200:
             return paragraph.text
+    
+    return "Sorry, we couldn't get a summary because of a paywall or lack of access."
 
 
 

@@ -35,7 +35,7 @@ const ApiResultsPage = () => {
     color: red;
     `;
 
-    const queryString = 'http://127.0.0.1:8000/api/getresults/?search=' + name;
+    const queryString = '/api/getresults/?search=' + name;
     
 
     function jsonToString(item) {
