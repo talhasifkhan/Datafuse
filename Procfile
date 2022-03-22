@@ -1,1 +1,1 @@
-web: gunicorn Datafuse.wsgi
+web: gunicorn Datafuse.wsgi:application --log-file - --log-level debug
