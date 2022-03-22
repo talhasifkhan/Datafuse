@@ -6,10 +6,13 @@ botocore==1.23.41
 certifi==2021.10.8
 charset-normalizer==2.0.9
 dateparser==0.7.6
+dj-database-url==0.5.0
 Django==4.0
 django-cors-headers==3.10.1
+django-heroku==0.0.0
 djangorestframework==3.12.4
 feedparser==5.2.1
+gunicorn==20.1.0
 idna==3.3
 jmespath==0.10.0
 lxml==4.7.1
@@ -17,7 +20,7 @@ pygooglenews==0.1.2
 python-dateutil==2.8.2
 pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
-regex==2021.11.10
+regex==2022.3.15
 requests==2.26.0
 requests-ip-rotator==1.0.10
 s3transfer==0.5.0
@@ -28,3 +31,4 @@ sqlparse==0.4.2
 tzdata==2021.5
 tzlocal==4.1
 urllib3==1.26.7
+whitenoise==6.0.0
