@@ -4,10 +4,7 @@ import Cardx from "../components/Card";
 import HashLoader from "react-spinners/HashLoader";
 import { css } from "@emotion/react";
 import { Button } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux"
-import { actionCreators } from "../state/index"
-import { bindActionCreators } from "redux";
-import { store } from '../state/store'
+import { useSelector } from "react-redux"
 
 const ApiResultsPage = () => {
     const navigate = useNavigate();
@@ -19,8 +16,6 @@ const ApiResultsPage = () => {
     let [loading, setLoading] = useState(false);
     let [color, setColor] = useState("#36D7B7");
     const state = useSelector((state) => state);
-    const dispatch = useDispatch();
-    const { changeAmount } = bindActionCreators(actionCreators, dispatch);
     const resultAmount = state.result;
     //console.log("Result amount is " + store.getState().result);
 

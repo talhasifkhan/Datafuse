@@ -19,7 +19,7 @@
     flex-direction: column;
     /*justify-content:center;*/
     width: 50vw;
-    height: 100vh;
+    height: 50vh;
 }
 
 .Header {
@@ -36,7 +36,6 @@
 }
 
 .tagline {
-    color: #eafecc;
     color: #6495ed;
     text-align: center;
     font-weight: 300;
@@ -71,7 +70,6 @@ body.fade-out{
     width: 50%;
     display: flex;
     align-items: center;
-    height: 60px;
 }
 
 
@@ -85,8 +83,7 @@ body.fade-out{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 25px;
-    filter: blur(0);
+    border-radius: 25px;;
 }
 
 .overlayButton {
@@ -100,22 +97,19 @@ body.fade-out{
     padding-top: 20px;
 }
 
-/*
+
 .card {
     width: 600px;
-    height: auto;
-    text-align: center;
+    text-align: left;
     padding: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 7px;
     border: 2px solid #EDF5E1;
-    color: #eafecc;
-    font-size: 1.5em;
-    font-weight: 100;
-    background-color: red;
+    color: white;
+    background-color: #6495ed;
 }
-*/
+
 .cardLoad {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
@@ -126,12 +120,14 @@ body.fade-out{
     padding: 10px;
     text-shadow: 3px 3px 10px #033eac;
     color: #d6f5ff;
+    font-size: 1.5em;
 }
 
 .cardParagraph {
     padding: 10px;
     border-radius: 10px;
     color: #d6f5ff;
+    font-size: 1em;
 }
 
 .cardLoad:nth-child(4) {
@@ -213,10 +209,70 @@ body.fade-out{
 .optionsTitle {
     color: #d6f5ff;
     font-size: 4em;
+    padding-bottom: 50px;
 }
 
 .label1 {
     color: #d6f5ff;
     font-size: 2em;
     text-align: left;
+}
+
+@media all and (max-width: 768px) {
+    
+    .App {
+        display: flex;
+        flex-direction: column;
+        /*justify-content:center;*/
+        width: 100%;
+        height: 50vh;
+
+    }
+
+    .datafuse {
+        font-size: 5.5em;
+    }
+
+    .tagline {
+        font-size: 1em;
+        width: 60%;
+    }
+
+    .formContainer {
+        width: 75%;
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+
+    .overlay {
+        width: 90vw;
+        height: 90vh;
+        top: 45%;
+    }
+
+    .card {
+        width: 300px;
+        padding: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .cardTitle {
+        font-size: 1.25em;
+        padding: 5px;
+    }
+    
+    .cardParagraph {
+        font-size: 0.85em;
+        padding: 5px;
+    }
+
+    .resultsTitle {
+        font-size: 4em;
+    }
+
+    .optionsTitle {
+        font-size: 3em;
+    }
 }

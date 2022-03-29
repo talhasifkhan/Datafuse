@@ -11,8 +11,6 @@ from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os
 
-# Create your views here.
-
 class Assets(View):
 
     def get(self, _request, filename):
@@ -39,7 +37,6 @@ def getResults(request):
     result = {"cards" : []}
     card_count = 0
     response = pyGoogleNewsResponse(request)
-    #response_json = json.dumps(response)
 
     for i in range(20):
         if card_count == 10:
@@ -59,9 +56,10 @@ def getResults(request):
     
     return Response(result_json)
 
+
+
 # removed api view header and return Response 
 def pyGoogleNewsResponse(request):
-    #print(request.query_params)
     gn = GoogleNews()
     q = request.query_params.get('search')
     print(q)
@@ -76,7 +74,6 @@ def scrapeSite(request):
     except:
         return -1
     soup = BeautifulSoup(url_request.content, 'html.parser')
-    print('hi')
 
     for paragraph in soup.find_all('p'):
         if len(paragraph.text) > 200:
@@ -84,8 +81,7 @@ def scrapeSite(request):
     
     return "Sorry, we couldn't get a summary because of a paywall or lack of access."
 
-
-
+#Testing Block
 '''
 @api_view(['GET'])
 def getResults(request):
@@ -107,5 +103,4 @@ def getResults(request):
     result_json = DictToJSON(result)
     
     return Response(result_json)
-
 '''

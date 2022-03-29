@@ -1,14 +1,14 @@
-import React, { useState, useEffect, Fragment,useCallback } from "react";
+import React, { Fragment } from "react";
 import { Button } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import Switch from "@mui/material/Switch";
-import IconButton from '@mui/material/IconButton';
 import "../App.css";
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useSelector, useDispatch } from "react-redux"
 import { actionCreators } from "../state/index"
 import { bindActionCreators } from "redux";
 //import Card from '@mui/material/Card';
+//import IconButton from '@mui/material/IconButton';
 
 const Options = ({ showOptions, setShowOptions }) => {
     const handleSlider = (value) => {
@@ -34,7 +34,7 @@ const Options = ({ showOptions, setShowOptions }) => {
         {showOptions && (
           <Fragment>
             <div className="overlay">
-              <button
+              <Button
                 className="overlayButton"
                 onClick={() => {
                   setShowOptions(!showOptions);
@@ -44,7 +44,7 @@ const Options = ({ showOptions, setShowOptions }) => {
                 type="button"
               >
                 X
-              </button>
+              </Button>
               <h1 className="optionsTitle">Options</h1>
               <h3 className="label1">Amount of Results</h3>
               <Slider
@@ -58,14 +58,6 @@ const Options = ({ showOptions, setShowOptions }) => {
                 value={state.result}
                 onChange={e => handleSlider(e.target.value)}
               />
-              <h3 className="label1">News Source Type</h3>
-              <div className="switches">
-              <Switch />
-              <Switch />
-              <Switch />
-              <Switch />
-              <Switch />
-              </div>
             </div>
           </Fragment>
         )}
