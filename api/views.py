@@ -23,7 +23,7 @@ url = urlparse(os.environ.get("REDIS_URL"))
 r = redis.Redis(host=url.hostname, port=url.port, username=url.username, password=url.password,
                 ssl=True, ssl_cert_reqs=None, decode_responses=True, charset="utf-8")
 
-print(r.get("test"))
+#print(r.get("test"))
 
 
 class Assets(View):
