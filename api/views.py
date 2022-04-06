@@ -19,6 +19,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 url = urlparse(os.environ.get("REDIS_URL"))
+if url:
+    print("worked")
 r = redis.Redis(host=url.hostname, port=url.port, username=url.username, password=url.password,
                 ssl=True, ssl_cert_reqs=None, decode_responses=True, charset="utf-8")
 
