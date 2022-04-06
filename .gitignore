@@ -12,3 +12,4 @@ yarn-error.log*
 /node_modules
 /.pnp
 .pnp.js
+dump.rdb

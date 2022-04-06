@@ -89,5 +89,3 @@ const ApiResultsPage = () => {
 }
 
 export default ApiResultsPage;
-
-//<Card info={info} />

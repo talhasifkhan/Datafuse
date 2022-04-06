@@ -1,7 +1,8 @@
 from typing import Dict
 from django.shortcuts import render
 import api
-import requests, json
+import requests
+import json
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from pygooglenews import GoogleNews
@@ -10,6 +11,17 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os
+import redis
+import time
+from urllib.parse import urlparse
+from dotenv import load_dotenv
+
+load_dotenv()
+
+url = urlparse(os.environ.get("REDIS_URL"))
+r = redis.Redis(host=url.hostname, port=url.port, username=url.username, password=url.password,
+                ssl=True, ssl_cert_reqs=None, decode_responses=True, charset="utf-8")
+
 
 class Assets(View):
 
@@ -22,19 +34,30 @@ class Assets(View):
         else:
             return HttpResponseNotFound()
 
+
 class DictToJSON(dict):
     def __str__(self):
         return json.dumps(self)
 
+
 @api_view(['GET'])
 def apiEndpoints(request):
-    api_urls = {'hello' : 'there',}
+    api_urls = {'hello': 'there', }
     return Response(api_urls)
 
 
 @api_view(['GET'])
 def getResults(request):
-    result = {"cards" : []}
+    q = request.query_params.get('search')
+
+    if (r.exists(q)):
+        result = r.get(q)
+        result_dict = json.loads(result)
+        result_json = DictToJSON(result_dict)
+        time.sleep(1.5)
+        return Response(result_json)
+
+    result = {"cards": []}
     card_count = 0
     response = pyGoogleNewsResponse(request)
 
@@ -47,28 +70,30 @@ def getResults(request):
         paragraph = scrapeSite(url)
         if paragraph == -1:
             continue
-        
-        card = {"title" : title, "url" : url, "paragraph" : paragraph,}
+
+        card = {"title": title, "url": url, "paragraph": paragraph, }
         result["cards"].append(card)
         card_count += 1
-    
+
     result_json = DictToJSON(result)
-    
+
+    r.set(q, str(result_json), ex=3600)
+
     return Response(result_json)
 
 
-
-# removed api view header and return Response 
+# removed api view header and return Response
 def pyGoogleNewsResponse(request):
     gn = GoogleNews()
     q = request.query_params.get('search')
-    print(q)
     response = gn.search(q)
     response_json = DictToJSON(response)
     return response_json
 
+
 def scrapeSite(request):
-    headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'}
+    headers = {
+        'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'}
     try:
         url_request = requests.get(request, headers)
     except:
@@ -78,10 +103,11 @@ def scrapeSite(request):
     for paragraph in soup.find_all('p'):
         if len(paragraph.text) > 200:
             return paragraph.text
-    
+
     return "Sorry, we couldn't get a summary because of a paywall or lack of access."
 
-#Testing Block
+
+# Testing Block
 '''
 @api_view(['GET'])
 def getResults(request):
