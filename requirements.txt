@@ -1,4 +1,6 @@
 asgiref==3.4.1
+async-timeout==4.0.2
+autopep8==1.6.0
 backports.zoneinfo==0.2.1
 beautifulsoup4==4.10.0
 boto3==1.20.41
@@ -6,6 +8,7 @@ botocore==1.23.41
 certifi==2021.10.8
 charset-normalizer==2.0.9
 dateparser==0.7.6
+Deprecated==1.2.13
 dj-database-url==0.5.0
 Django==4.0
 django-cors-headers==3.10.1
@@ -13,16 +16,21 @@ django-heroku==0.0.0
 djangorestframework==3.12.4
 feedparser==5.2.1
 gunicorn==20.1.0
+hiredis==2.0.0
 idna==3.3
 jmespath==0.10.0
 lxml==4.7.1
+packaging==21.3
 psycopg2==2.9.3
 psycopg2-binary==2.9.3
+pycodestyle==2.8.0
 pygooglenews==0.1.2
+pyparsing==3.0.7
 python-dateutil==2.8.2
 python-dotenv==0.20.0
 pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
+redis==4.2.0
 regex==2022.3.15
 requests==2.26.0
 requests-ip-rotator==1.0.10
@@ -31,7 +39,10 @@ sgmllib3k==1.0.0
 six==1.16.0
 soupsieve==2.3.1
 sqlparse==0.4.2
+toml==0.10.2
+typing_extensions==4.1.1
 tzdata==2021.5
 tzlocal==4.1
 urllib3==1.26.7
 whitenoise==6.0.0
+wrapt==1.14.0
