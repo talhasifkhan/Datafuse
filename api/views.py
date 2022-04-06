@@ -18,12 +18,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-url = urlparse(os.environ.get("REDIS_URL"))
+url = urlparse(os.environ.get("REDIS_TLS_URL"))
 
 r = redis.Redis(host=url.hostname, port=url.port, username=url.username, password=url.password,
                 ssl=True, ssl_cert_reqs=None, decode_responses=True, charset="utf-8")
 
-#print(r.get("test"))
+print(r.get("2ndtest"))
 
 
 class Assets(View):
