@@ -23,8 +23,6 @@ url = urlparse(os.environ.get("REDIS_TLS_URL"))
 r = redis.Redis(host=url.hostname, port=url.port, username=url.username, password=url.password,
                 ssl=True, ssl_cert_reqs=None, decode_responses=True, charset="utf-8")
 
-print(r.get("2ndtest"))
-
 
 class Assets(View):
 
@@ -53,12 +51,12 @@ def apiEndpoints(request):
 def getResults(request):
     q = request.query_params.get('search')
 
-    # if (r.exists(q)):
-    #     result = r.get(q)
-    #     result_dict = json.loads(result)
-    #     result_json = DictToJSON(result_dict)
-    #     time.sleep(1.5)
-    #     return Response(result_json)
+    if (r.exists(q)):
+        result = r.get(q)
+        result_dict = json.loads(result)
+        result_json = DictToJSON(result_dict)
+        time.sleep(1.5)
+        return Response(result_json)
 
     result = {"cards": []}
     card_count = 0
@@ -80,7 +78,7 @@ def getResults(request):
 
     result_json = DictToJSON(result)
 
-    # r.set(q, str(result_json), ex=3600)
+    r.set(q, str(result_json), ex=3600)
 
     return Response(result_json)
 
