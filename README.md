@@ -7,7 +7,7 @@
 <img width="1440" alt="Screen Shot 2023-07-23 at 2 07 31 PM" src="https://github.com/talhasifkhan/Datafuse/assets/32559143/386e3013-977f-4f34-9f12-e727b1786ec0">
 
 ## Introduction
-<img align="left" width="400" alt="Screen Shot 2023-07-23 at 2 07 31 PM" 
+<img align="left" width="300" alt="Screen Shot 2023-07-23 at 2 07 31 PM" 
 src="https://github.com/talhasifkhan/Datafuse/assets/32559143/2a1023cc-e42a-4152-9516-9dd1d9a3b1f3">
 <h4>Aggregated, summarized, and simplified for your convenience.</h4>
 <br>
@@ -18,7 +18,7 @@ What if I want information on a topic but don't want to scour through the entire
 -  finding relevant articles<br>
 -  scraping the articles<br>
 -  summarizing the articles<br>
--  presenting the summaries in a user friendly, stacked card layout<br><br>
+-  presenting the summaries in a user friendly, card layout<br><br>
 
 The goal is to consolidate news information from top ranked sites and provide an excerpt from each article for convenient reading. If the user is interested by the excerpt of the article, they can click the link to access the full article. 
 
