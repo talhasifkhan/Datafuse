@@ -13,7 +13,7 @@ This application seeks to solve this problem by:
 -  finding the most relevant articles based on the user's query<br>
 -  scraping and summarizing the articles<br>
 
-The articles and their summaries are then presented in a user friendly, card layout, which lets you consume these snippets of information easily.<br><br>
+The articles and their summaries are then presented in a user friendly, card layout, which lets you consume these snippets easily.<br>
 
 Additional search options are also available, such as choosing an amount of results and choosing time frame of results.
 
@@ -35,4 +35,4 @@ Datafuse provides **breadth** by consolidating news information from top ranked 
 - Frontend: React/Redux, HTML/CSS
 - Database/Caching: Redis
 - Deployment: Heroku, Docker
-- Miscellaneous: OpenAI GPT3.5, Google News Search API, BeautifulSoup 
+- Miscellaneous: OpenAI GPT3.5, Google News Search API, BeautifulSoup, lxml
